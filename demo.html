@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>语音对讲示例</title>
+  <style>
+    #visualizer{width:300px;height:100px;border:1px solid #fff;display:inline-block;margin:8px 0}#url{width:500px}#root{max-width:1280px;margin:0 auto;padding:2rem;text-align:center}:root{font-family:Inter,system-ui,Avenir,Helvetica,Arial,sans-serif;line-height:1.5;font-weight:400;color-scheme:light dark;color:#ffffffde;background-color:#242424;font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%}a{font-weight:500;color:#646cff;text-decoration:inherit}a:hover{color:#535bf2}body{margin:0;display:flex;place-items:center;min-width:320px;min-height:100vh}h1{font-size:3.2em;line-height:1.1}button,input[type=text]{border-radius:8px;border:1px solid transparent;padding:.6em 1.2em;font-size:1em;font-weight:500;font-family:inherit;background-color:#1a1a1a;cursor:pointer;transition:border-color .25s}button:hover{border-color:#646cff}button:focus,button:focus-visible{outline:4px auto -webkit-focus-ring-color}input[type=text]{border:1px solid #fff}@media (prefers-color-scheme: light){:root{color:#213547;background-color:#fff}a:hover{color:#747bff}button,input[type=text]{background-color:#f9f9f9}input[type=text]{border:1px solid #646cff}}
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <div>地址: <input id="url" type="text">
+    </div>
+    <div id="visualizer"></div>
+    <div>
+      <button id="start">开始</button>&nbsp;&nbsp;
+      <button id="stop">停止</button>
+    </div>
+  </div>
+
+  <script src="https://g.alicdn.com/linkplatform/voice-call/1.0.0??index.js,visualizer.js,helper.js"></script>
+  <script>
+    const { Sender } = window.VoiceCall;
+    const sender = new Sender();
+    sender.use(voiceCallPluginVisualizer, {
+      container: '#visualizer'
+    });
+    sender.use(voiceCallPluginHelper);
+    document.getElementById('start').addEventListener('click', () => {
+      sender.start(document.getElementById('url').value);
+    });
+    document.getElementById('stop').addEventListener('click', () => {
+      sender.stop();
+    });
+    window.addEventListener('unload', () => {
+      sender.dispose();
+    });
+  </script>
+</body>
+
+</html>

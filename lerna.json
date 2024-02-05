@@ -1,0 +1,15 @@
+  {
+    "npmClient": "cnpm",
+    "npmClientArgs": [
+      "--no-lockfile"
+    ],
+    "version": "independent",
+    "packages": [
+      "packages/*"
+    ],
+    "command": {
+      "bootstrap": {
+        "hoist": true
+      }
+    }
+  }

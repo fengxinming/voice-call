@@ -1,0 +1,21 @@
+{
+  "name": "voice-call",
+  "version": "1.0.0",
+  "description": "语音对讲",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "scripts": {
+    "build": "vite build",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "eemitt": "^2.0.1",
+    "tslib": "^2.6.2"
+  },
+  "repository": "https://github.com/fengxinming/voice-call.git",
+  "author": "Jesse Feng <fxm0016@126.com>",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ]
+}
