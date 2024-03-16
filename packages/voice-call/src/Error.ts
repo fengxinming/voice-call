@@ -4,8 +4,8 @@ export class SenderError extends Error {
   constructor(message: string, extra?: {[key: string]: any}) {
     super(message);
 
-    if (Error.captureStackTrace) {
-      Error.captureStackTrace(this, this.constructor);
+    if ((Error as any).captureStackTrace) {
+      (Error as any).captureStackTrace(this, this.constructor);
     }
     else {
       this.stack = (new Error()).stack;

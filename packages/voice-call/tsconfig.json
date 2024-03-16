@@ -7,11 +7,9 @@
     "moduleResolution": "node",
     "newLine": "LF",
     "strict": true,
-
     "allowJs": true,
     "noImplicitAny": false,
     "noImplicitThis": false,
-
     "downlevelIteration": true,
     "noUnusedLocals": true,
     "experimentalDecorators": true,
@@ -19,16 +17,20 @@
     "esModuleInterop": true,
     "removeComments": false,
     "jsx": "preserve",
-    "lib": ["esnext", "dom"],
-
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "dist"
   },
   "include": [
-    "src", 
+    "src",
     "types",
     "../../node_modules/vite/client.d.ts"
   ],
-  "exclude": ["dist"]
+  "exclude": [
+    "dist"
+  ]
 }
